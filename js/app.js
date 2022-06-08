@@ -5,6 +5,10 @@
 if (document.querySelector('.main-slider')) {
 
 	const mainslider = new Swiper('.main-slider', {
+		autoplay: {
+			delay: 5000,
+		 },
+		 speed: 800,
 		// If we need pagination
 		pagination: {
 			el: '.main-slider__dotts',
@@ -21,7 +25,7 @@ if (document.querySelector('.main-slider')) {
 
 	for (let i = 0; i < mainsliderImages.length; i++) {
 		const mainsliderImage = mainsliderImages[i].querySelector('img').getAttribute('src');
-		console.log(mainsliderBullets[i]);
+		
 		mainsliderBullets[i].style.backgroundImage = 'url("' + mainsliderImage + '")';
 
 	}
@@ -91,8 +95,10 @@ if (document.querySelector('.images-product__mainslider')) {
 	var productMainslider = new Swiper('.images-product__mainslider', {
 		autoheight: true,
 		slidesPerView: 1,
+		
 		speed: 800,
 		spaceBetween: 0,
+
 
 		thumbs: {
 			swiper: productSubslider,
@@ -200,7 +206,7 @@ if (isIeEdge) {
 	function ibg() {
 		let ibgmages = document.querySelectorAll('._ibg');
 		for (let i = 0; i < ibgmages.length; i++) {
-			console.log('ggg');
+			
 
 			ibgmages[i].classList.add('ibg');
 		}
@@ -402,7 +408,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
 	const dropDownListItems = dropDownList.querySelectorAll('.dropdown__item');
 	const dropDownInput = dropDownWrapper.querySelector('.dropdown__input_hidden');
 	let itemSelected = dropDownList.querySelector('.dropdown__item[selected]');
-	console.log(itemSelected);
+	
 
 	if (itemSelected) {
 		dropDownBtn.innerText = itemSelected.innerText;
@@ -478,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		tabs.addEventListener('click', (e) => {
 
 			if (e.target.classList.contains('tabs__btn')) {
-				console.log('ggg');
+				
 				const tabsPath = e.target.dataset.tabsPath;
 				tabsBtn.forEach(el => { el.classList.remove('tabs__btn_active') });
 				document.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('tabs__btn_active');
@@ -597,7 +603,7 @@ if (isMobile.any()) {
 		let menuParent = menuParents[i];
 		menuParent.addEventListener('click', function (e) {
 			menuParent.parentElement.classList.toggle('_active');
-			e.preventDefault();
+			
 		});
 	}
 
@@ -621,6 +627,9 @@ if (isMobile.any()) {
 
 let menuPageBurger = document.querySelector('.menu-page__burger');
 let menuPageBody = document.querySelector('.menu-page__body');
+menuPageBurger.classList.toggle('_active');
+menuPageBody.classList.toggle('_active');
+slideToggle(document.getElementById("menu-page__body"), 600)
 menuPageBurger.addEventListener('click', function () {
 	this.classList.toggle('_active');
 	menuPageBody.classList.toggle('_active');
@@ -642,12 +651,12 @@ for (let i = 0; i < checkboxCategories.length; i++) {
 		this.classList.toggle('_active');
 
 		var checkboxActiveCategories = document.querySelectorAll('.categories-search__checkbox._active');
-		console.log(checkboxActiveCategories.length);
+		
 
 		if (checkboxActiveCategories.length > 0) {
 			searchCategories.classList.add('_categories');
 			var searchQuantity = searchCategories.querySelector('.search-page__quantity');
-			console.log(searchQuantity);
+			
 
 			searchQuantity.innerHTML = searchQuantity.dataset.text + ' ' + checkboxActiveCategories.length;
 		} else {
@@ -692,7 +701,7 @@ let spoilers = document.querySelectorAll('.section-filter__title .spoller');
 let filterWrappers = document.querySelectorAll('.section-filter__body_toggle')
 for (let i = 0; i < spoilers.length; i++) {
 	if (!spoilers[i].classList.contains('_active')) {
-		console.log(filterWrappers[i]);
+		
 
 		slideUp(filterWrappers[i]);
 	}
@@ -714,7 +723,7 @@ if (isMobile.any() && document.querySelector('.filter__title')) {
 	filterTitle.addEventListener('click', function (e) {
 		if (window.innerWidth <= 992) {
 			filterTitle.classList.toggle('_active');
-			console.log(filterTitle.nextElementSibling)
+			
 			slideToggle(filterTitle.nextElementSibling)
 		}
 	});
