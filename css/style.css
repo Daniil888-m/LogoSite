@@ -2937,11 +2937,12 @@ Select c dropdown на JS
 }
 
 .form-checkout__line {
-    display: flex;
+    display: grid;
     margin: 0px 0px 10px 0px;
     gap: 15px 20px;
     width: 100%;
     align-items: center;
+    grid-template-columns: 100px 200px auto;
 }
 
 .form-checkout__descr {}
@@ -4574,7 +4575,7 @@ body._touch .item-product__hover {
 
 @media (max-width: 991.98px) {
     .form-checkout__line {
-        flex-wrap: wrap;
+        grid-template-columns: auto;
         margin-bottom: 10px;
     }
     .form-checkout__input {
